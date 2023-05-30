@@ -11,11 +11,6 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('Run') {
-            steps {
-                sh 'java -jar ./target/jenkins-spring-java-11-0.0.1-SNAPSHOT.jar'
-            }
-        }
         stage('upload'){
             steps{
                  sshagent(credentials : ['aliyun-ssh']) {
